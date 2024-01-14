@@ -6,7 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CartoesDTO {
-    private Long id;
-    private Integer numero;
-    private Integer codigo;
+    private String numero;
+    private String codigo;
 }

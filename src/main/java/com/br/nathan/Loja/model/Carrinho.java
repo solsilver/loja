@@ -4,16 +4,17 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
-public class CartoesCadastrados {
+@Table
+public class Carrinho   {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer numero;
-    private Integer codigo;
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "pessoa_id")
-    private Comprador comprador;
+    private Integer valortotal;
+    /*@ManyToMany(mappedBy = "carrinhos")
+   /* private List<Itens> itens;*/
 }

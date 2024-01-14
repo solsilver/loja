@@ -1,6 +1,5 @@
 package com.br.nathan.Loja.controller;
 
-import com.br.nathan.Loja.model.CartoesCadastrados;
 import com.br.nathan.Loja.model.Comprador;
 import com.br.nathan.Loja.model.dto.CompradorDTO;
 import com.br.nathan.Loja.service.CompradorService;
@@ -19,7 +18,7 @@ public class CompradorController {
     private CompradorService compradorService;
 
     @PostMapping
-    public ResponseEntity<?> criarPessoa(@RequestBody Comprador comprador) {
+    public ResponseEntity<?> criarComprador(@RequestBody Comprador comprador) {
         Comprador compradorOutput = compradorService.saveComprador(comprador);
         URI location = UriComponentsBuilder.fromUriString("http://localhost:8080/Pessoa/{id}").
                 buildAndExpand(compradorOutput.getId()).toUri();

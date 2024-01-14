@@ -5,9 +5,10 @@ import com.br.nathan.Loja.model.Comprador;
 import com.br.nathan.Loja.model.dto.CompradorDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class CompradorService {
     @Autowired
     private CompradorRepository compradorRepository;
@@ -15,10 +16,10 @@ public class CompradorService {
     private CartoesService cartoesService;
     @Autowired
     private ModelMapper modelMapper;
-    public Comprador saveComprador(Comprador comprador) {
 
+    public Comprador saveComprador(Comprador comprador) {
         compradorRepository.save(comprador);
-        cartoesService.salvarCartoes(comprador.getCartoesCadastrados() , comprador);
+        cartoesService.salvarCartoes(comprador.getCartoes(), comprador);
         return comprador;
 
     }

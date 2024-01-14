@@ -1,7 +1,9 @@
-package com.example.nathan.aula5;
+package com.br.nathan.Loja;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 @Configuration
 public class ModelMapperConfig {
 

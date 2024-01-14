@@ -19,7 +19,11 @@ public class Comprador {
     private String genero;
     private String email;
     private LocalDate dataNascimento;
-    @OneToMany(mappedBy = "comprador")
-    private List<CartoesCadastrados> cartoesCadastrados;
+    @OneToMany(mappedBy = "comprador", cascade = CascadeType.ALL)
+    private List<Cartoes> cartoes;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = " carrinho_id")
+    private Carrinho carrinho;
+
 
 }
