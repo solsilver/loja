@@ -28,10 +28,12 @@ public class Itens {
     )
     @JsonIgnore
     private List<Carrinho> carrinhos;
-    public void addEstudante(Carrinho carrinho) {
+    public void addCarrinho(Carrinho carrinho) {
         if(this.carrinhos == null){
             this.carrinhos = new ArrayList<>();
         }
         this.carrinhos.add(carrinho);
     }
+
+
 }
