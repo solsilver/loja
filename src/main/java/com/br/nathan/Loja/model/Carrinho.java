@@ -10,11 +10,11 @@ import java.util.List;
 @Setter
 @Entity
 @Table
-public class Carrinho   {
+public class Carrinho {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Float valortotal;
     @ManyToMany(mappedBy = "carrinhos")
-   private List<Itens> itens;
+    private List<Itens> itens;
 }

@@ -22,14 +22,15 @@ public class Itens {
     @JoinTable(
 
             name = "Itens-Carrinhos",
-            joinColumns= @JoinColumn(name = "itens_id") ,
+            joinColumns = @JoinColumn(name = "itens_id"),
             inverseJoinColumns = @JoinColumn(name = "carrinho_id")
 
     )
     @JsonIgnore
     private List<Carrinho> carrinhos;
+
     public void addCarrinho(Carrinho carrinho) {
-        if(this.carrinhos == null){
+        if (this.carrinhos == null) {
             this.carrinhos = new ArrayList<>();
         }
         this.carrinhos.add(carrinho);

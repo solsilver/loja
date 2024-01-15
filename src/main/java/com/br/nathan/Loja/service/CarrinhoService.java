@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class CarrinhoService {
 
@@ -16,24 +17,25 @@ public class CarrinhoService {
     private CarrinhoRepository carrinhoRepository;
     @Autowired
     private ItensService itensService;
+
     public List<Carrinho> getall() {
         List<Carrinho> carrinhos = carrinhoRepository.findAll();
         return carrinhos;
     }
-    public  Carrinho adicionarItens(Long id, ItensDTO itensid) {
-        Carrinho carrinho =  carrinhoRepository.findById(id).get();
+
+    public Carrinho adicionarItens(Long id, ItensDTO itensid) {
+        Carrinho carrinho = carrinhoRepository.findById(id).get();
         List<Itens> itens = itensService.buscasItensbyIds(itensid.getId()
                 .stream().toList());
-        for( Itens iten : itens){
-            carrinho.setValortotal(iten.getValor()+carrinho.getValortotal());
+        for (Itens iten : itens) {
+            carrinho.setValortotal(iten.getValor() + carrinho.getValortotal());
         }
-        itensService.vinculaCarrinho( itens , carrinho);
+        itensService.vinculaCarrinho(itens, carrinho);
         carrinho.setItens(itens);
 
 
         return carrinhoRepository.save(carrinho);
     }
-
 
 
 }
