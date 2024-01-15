@@ -14,7 +14,6 @@ public class ItensService {
 private ItensRepository itensRepository;
     public Itens saveItens(Itens itens) {
         itensRepository.save(itens);
-        //telefoneService.salvarTelefones(pessoaInput.getTelefones() , pessoaInput);
         return itens;
     }
 

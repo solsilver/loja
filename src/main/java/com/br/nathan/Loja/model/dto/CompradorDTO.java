@@ -17,5 +17,5 @@ public class CompradorDTO {
     private String email;
     private LocalDate dataNascimento;
     private List<CartoesDTO> cartoes;
-    private Carrinho carrinho;
+    private CarrinhoDTO carrinho;
 }

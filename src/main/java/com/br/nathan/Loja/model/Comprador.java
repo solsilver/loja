@@ -1,5 +1,6 @@
 package com.br.nathan.Loja.model;
 
+import com.br.nathan.Loja.model.dto.CarrinhoDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
