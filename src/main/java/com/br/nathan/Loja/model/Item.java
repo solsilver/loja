@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table
-public class Itens {
+public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,9 +20,8 @@ public class Itens {
     private Float valor;
     @ManyToMany
     @JoinTable(
-
-            name = "Itens-Carrinhos",
-            joinColumns = @JoinColumn(name = "itens_id"),
+            name = "itens_carrinhos",
+            joinColumns = @JoinColumn(name = "item_id"),
             inverseJoinColumns = @JoinColumn(name = "carrinho_id")
 
     )

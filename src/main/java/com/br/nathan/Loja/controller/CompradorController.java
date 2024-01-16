@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("Comprador")
+@RequestMapping("comprador")
 public class CompradorController {
     @Autowired
     private CompradorService compradorService;
@@ -20,7 +20,7 @@ public class CompradorController {
     @PostMapping
     public ResponseEntity<?> criarComprador(@RequestBody Comprador comprador) {
         Comprador compradorOutput = compradorService.saveComprador(comprador);
-        URI location = UriComponentsBuilder.fromUriString("http://localhost:8080/Pessoa/{id}").
+        URI location = UriComponentsBuilder.fromUriString("http://localhost:8080/pessoa/{id}").
                 buildAndExpand(compradorOutput.getId()).toUri();
 
         return ResponseEntity.created(location).build();
