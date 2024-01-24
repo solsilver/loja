@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("Carrinho")
+@RequestMapping("carrinho")
 public class CarrinhoControler {
     @Autowired
     private CarrinhoService carrinhoService;

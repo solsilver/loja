@@ -20,9 +20,8 @@ public class Item {
     private Float valor;
     @ManyToMany
     @JoinTable(
-
-            name = "Itens-Carrinhos",
-            joinColumns = @JoinColumn(name = "itens_id"),
+            name = "itens_carrinhos",
+            joinColumns = @JoinColumn(name = "item_id"),
             inverseJoinColumns = @JoinColumn(name = "carrinho_id")
 
     )

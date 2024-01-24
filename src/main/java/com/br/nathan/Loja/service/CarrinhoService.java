@@ -27,7 +27,7 @@ public class CarrinhoService {
         List<Item> itens = itemService.buscasItensbyIds(itensid.getId()
                 .stream().toList());
         for (Item iten : itens) {
-            carrinho.setValortotal(iten.getValor() + carrinho.getValortotal());
+            carrinho.setValorTotal(iten.getValor() + carrinho.getValorTotal());
         }
         itemService.vinculaCarrinho(itens, carrinho);
         carrinho.setItens(itens);

@@ -13,15 +13,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("Itens")
-public class ItensController {
+@RequestMapping("item")
+public class ItemController {
     @Autowired
     private ItemService itemService;
 
     @PostMapping
     public ResponseEntity<?> criarItens(@RequestBody Item item) {
         Item itemOutput = itemService.saveItens(item);
-        URI location = UriComponentsBuilder.fromUriString("http://localhost:8080/Itens/{id}").
+        URI location = UriComponentsBuilder.fromUriString("http://localhost:8080/item/{id}").
                 buildAndExpand(itemOutput.getId()).toUri();
 
         return ResponseEntity.created(location).build();
