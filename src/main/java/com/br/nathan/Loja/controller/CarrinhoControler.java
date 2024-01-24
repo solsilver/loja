@@ -3,7 +3,6 @@ package com.br.nathan.Loja.controller;
 import com.br.nathan.Loja.model.Carrinho;
 import com.br.nathan.Loja.model.dto.ItensDTO;
 import com.br.nathan.Loja.service.CarrinhoService;
-import com.br.nathan.Loja.service.ItensService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

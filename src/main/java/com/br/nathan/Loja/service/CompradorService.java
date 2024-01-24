@@ -3,11 +3,14 @@ package com.br.nathan.Loja.service;
 import com.br.nathan.Loja.Repository.CompradorRepository;
 import com.br.nathan.Loja.model.Comprador;
 import com.br.nathan.Loja.model.dto.CompradorDTO;
+import com.br.nathan.Loja.model.dto.CompradorInputDTO;
+import com.br.nathan.Loja.service.exception.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CompradorService {
@@ -18,7 +21,8 @@ public class CompradorService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public Comprador saveComprador(Comprador comprador) {
+    public Comprador saveComprador(CompradorInputDTO compradorInputDTO) {
+        Comprador comprador = modelMapper.map(compradorInputDTO, Comprador.class);
         compradorRepository.save(comprador);
         cartoesService.salvarCartoes(comprador.getCartoes(), comprador);
         return comprador;
@@ -33,4 +37,10 @@ public class CompradorService {
     }
 
 
+    public CompradorDTO getCompradorById(Long id) {
+        Comprador comprador = compradorRepository.findById(id)
+                .orElseThrow( () -> new ObjectNotFoundException("comprador nao encontrado") );
+
+        return modelMapper.map(comprador,CompradorDTO.class);
+    }
 }

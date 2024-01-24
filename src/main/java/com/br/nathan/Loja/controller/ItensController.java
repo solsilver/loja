@@ -1,7 +1,7 @@
 package com.br.nathan.Loja.controller;
 
-import com.br.nathan.Loja.model.Itens;
-import com.br.nathan.Loja.service.ItensService;
+import com.br.nathan.Loja.model.Item;
+import com.br.nathan.Loja.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,13 +16,13 @@ import java.net.URI;
 @RequestMapping("Itens")
 public class ItensController {
     @Autowired
-    private ItensService itensService;
+    private ItemService itemService;
 
     @PostMapping
-    public ResponseEntity<?> criarItens(@RequestBody Itens itens) {
-        Itens itensOutput = itensService.saveItens(itens);
+    public ResponseEntity<?> criarItens(@RequestBody Item item) {
+        Item itemOutput = itemService.saveItens(item);
         URI location = UriComponentsBuilder.fromUriString("http://localhost:8080/Itens/{id}").
-                buildAndExpand(itensOutput.getId()).toUri();
+                buildAndExpand(itemOutput.getId()).toUri();
 
         return ResponseEntity.created(location).build();
     }

@@ -24,7 +24,7 @@ public class Comprador {
     private List<Cartoes> cartoes;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = " carrinho_id")
-    private Carrinho carrinho;
+    private Carrinho carrinho = new Carrinho();
 
 
 }

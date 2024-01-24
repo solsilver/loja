@@ -14,7 +14,7 @@ public class Carrinho {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Float valortotal;
+    private Float valortotal= 0.0F;
     @ManyToMany(mappedBy = "carrinhos")
-    private List<Itens> itens;
+    private List<Item> itens;
 }
